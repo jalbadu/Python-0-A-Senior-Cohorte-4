@@ -1,4 +1,4 @@
-from prettytable import PrettyTable
+#from prettytable import PrettyTable
 
 # base de datos en memoria
 libros = [
@@ -54,12 +54,12 @@ def mostrar_menu():
     print("7. Ver todos los Socios")
     print("0. Salir")
 
-def registar_libro():
+def registrar_libro():
     global libros
 
-    print("================================================================")
+    print("****************************************************************")
     print("Registrar Libros 📖")
-    print("================================================================")
+    print("****************************************************************")
     print("Digite 0 si quiere cancelar la creacion")
 
     titulo = input("Título del libro: ").strip().lower()
@@ -106,12 +106,48 @@ def registar_libro():
     print(f"📚 {titulo} - {autor}")
     print(f"ISBN: {isbn}")
 
-    print("================================================================")
+    print("****************************************************************")
     
     
 
-def registar_socio():
-    pass
+def registrar_socio():
+    global socios
+    global axuContador
+
+    print("****************************************************************")
+    print("Registrar Socios 👤")
+    print("****************************************************************")
+    print("Digite 0 si quiere cancelar la creación")
+
+    nombre = input("Digite su nombre de usuario: ").strip()
+    if nombre == "0":
+        return
+    if not nombre:
+        print("❌ El nombre no puede estar vacío ❌")
+        return
+
+    identificacion = input("Digite su identificación:  ").strip()
+    if identificacion == "0":
+        return
+    if not identificacion:
+        print("❌ La identificación no puede estar vacía ❌")
+        return
+
+    # Crear código único con máscara
+    codigo = f"Socio-{axuContador:03d}"
+    axuContador += 1
+
+    nuevo_socio = {
+        'usuario': codigo,
+        'nombre': nombre,
+        'ID': identificacion
+    }
+
+    socios.append(nuevo_socio)
+
+    print("\n✅ Socio registrado:")
+    print(f"{codigo}: {nombre} - ID {identificacion}")
+    print("****************************************************************")
 
 def prestar_libro():
     pass
@@ -124,7 +160,7 @@ def ver_libro_prestado():
 
 def ver_todos_libros():
 
-    table = PrettyTable()
+    '''table = PrettyTable()
 
     table.field_names = ["titulo", "autor", "isbn", "estado"]
 
@@ -134,24 +170,24 @@ def ver_todos_libros():
         table.add_row([libro["titulo"], libro["autor"], libro["isbn"], libro["estado"]])
 
     print(table)
-
+'''
 
     """
-    print("================================================================")
+    print("****************************************************************")
     print("Mostrando todo los libros")
-    print("================================================================")
+    print("****************************************************************")
 
     if not libros:
         print("No hay libros registrados en la biblioteca")
         return
     
     for i, libro in enumerate(libros, 1):
-        print("================================================================")
+        print("****************************************************************")
         print(f"{i}. Nombre del Libro: {libro["titulo"]}")
         print(f"     Autor: {libro["autor"]}")
         print(f"     ISBN: {libro["isbn"]}")
         print(f"     Estado: {libro["estado"]}")
-        print("================================================================")
+        print("****************************************************************")
     """
 
     
@@ -168,9 +204,9 @@ def main():
         
         match opcion:
             case '1':
-                registar_libro()
+                registrar_libro()
             case '2':
-                pass # Tarea
+                registrar_socio()
             case '3':
                 pass
             case '4':
