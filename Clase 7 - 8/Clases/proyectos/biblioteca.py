@@ -41,10 +41,10 @@ libros = [
 socios = []
 axuContador = 1
 
-def mostar_menu():
+def mostrar_menu():
     '''Muestra las opciones de menu'''
     print(" MINIBIBLIOTECA ")
-    print("1. Regristar Libro")
+    print("1. Registrar Libro")
     print("2. Registrar un Socio")
     print("3. Prestar Libro")
     print("4. Devolver Libro")
@@ -161,7 +161,7 @@ def ver_todo_socios():
 def main():
     '''Funcion principal del programa'''
     while True:
-        mostar_menu()
+        mostrar_menu()
 
         opcion = input("Seleccion una opción(0-7): ").strip()
         
