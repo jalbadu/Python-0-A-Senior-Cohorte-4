@@ -39,7 +39,7 @@ libros = [
     }
 ]
 socios = []
-axuContador = 1 #none
+axuContador = 1 
 
 
 def mostrar_menu():
@@ -119,7 +119,7 @@ def registrar_socio():
     print("****************************************************************")
     print("Digite 0 si quiere cancelar la creación")
 
-    nombre = input("Digite su nombre de usuario: ").strip()
+    nombre = input("Digite su nombre de usuario: ").strip().lower()
     if nombre == "0":
         return
     if not nombre:
@@ -133,8 +133,8 @@ def registrar_socio():
         print("❌ La identificación no puede estar vacía ❌")
         return
 
-    # Crear código único con máscara
-    codigo = f"Socio-{axuContador:03d}"
+    # Crear código único y con el formato pedido
+    codigo = f"Socio-{axuContador:.03d}"
     axuContador += 1
 
     nuevo_socio = {
@@ -145,8 +145,8 @@ def registrar_socio():
 
     socios.append(nuevo_socio)
 
-    print("\n✅ Socio registrado:")
-    print(f"{codigo}: {nombre} - ID {identificacion}")
+    print("\n       ✅    Socio registrado:  ")
+    print(f"{codigo}: {nombre} -- ID {identificacion}")
     print("****************************************************************")
 
 def prestar_libro():
@@ -159,6 +159,8 @@ def ver_libro_prestado():
     pass
 
 def ver_todos_libros():
+
+
 
     '''table = PrettyTable()
 
@@ -191,9 +193,21 @@ def ver_todos_libros():
     """
 
     
+def ver_todos_socios():
+    print("****************************************************************")
+    print("Mostrando todos los Socios")
+    print("****************************************************************")
 
-def ver_todo_socios():
-    pass
+    if not socios:
+        print("No hay socios ingresados")
+        return
+    
+    for i, libro in enumerate(socios, index=1):
+        print("****************************************************************")
+        print(f"{i}. Codigo:         {socios["codigo"]}")
+        print(f"     Nombre:         {socios["nombre"]}")
+        print(f"     Identificación: {socios["identificacion"]}")
+        print("****************************************************************")
 
 def main():
     '''Funcion principal del programa'''
@@ -216,7 +230,7 @@ def main():
             case '6':
                 ver_todos_libros()
             case '7':
-                pass # Tarea
+                ver_todos_socios()
             case '0':
                 print("📚 Gracias por usar MiniBiblio! 📚")
                 print("📚 Hasta Luego 📚")
