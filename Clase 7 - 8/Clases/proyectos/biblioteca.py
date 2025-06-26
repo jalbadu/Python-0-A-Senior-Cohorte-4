@@ -39,7 +39,8 @@ libros = [
     }
 ]
 socios = []
-axuContador = 1
+axuContador = 1 #none
+
 
 def mostrar_menu():
     '''Muestra las opciones de menu'''
