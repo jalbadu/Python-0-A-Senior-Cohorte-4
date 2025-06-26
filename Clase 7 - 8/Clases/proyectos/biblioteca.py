@@ -174,7 +174,7 @@ def ver_todos_libros():
     print(table)
 '''
 
-    """
+    
     print("****************************************************************")
     print("Mostrando todo los libros")
     print("****************************************************************")
@@ -185,15 +185,16 @@ def ver_todos_libros():
     
     for i, libro in enumerate(libros, 1):
         print("****************************************************************")
-        print(f"{i}. Nombre del Libro: {libro["titulo"]}")
-        print(f"     Autor: {libro["autor"]}")
-        print(f"     ISBN: {libro["isbn"]}")
-        print(f"     Estado: {libro["estado"]}")
+        print(f"{i}. Nombre del Libro: {libro['titulo']}")
+        print(f"     Autor: {libro['autor']}")
+        print(f"     ISBN: {libro['isbn']}")
+        print(f"     Estado: {libro['estado']}")
         print("****************************************************************")
-    """
+    
 
     
 def ver_todos_socios():
+    
     print("****************************************************************")
     print("Mostrando todos los Socios")
     print("****************************************************************")
@@ -204,9 +205,9 @@ def ver_todos_socios():
     
     for i, libro in enumerate(socios, index=1):
         print("****************************************************************")
-        print(f"{i}. Codigo:         {socios["codigo"]}")
-        print(f"     Nombre:         {socios["nombre"]}")
-        print(f"     Identificación: {socios["identificacion"]}")
+        print(f"{i}. Codigo:         {socios['codigo']}")
+        print(f"     Nombre:         {socios['nombre']}")
+        print(f"     Identificación: {socios['identificacion']}")
         print("****************************************************************")
 
 def main():
